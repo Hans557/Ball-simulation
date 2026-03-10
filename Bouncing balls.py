@@ -4,7 +4,6 @@ import random
 import pygame.gfxdraw
 
 pygame.init()
-pygame.mixer.init()
 
 # ============================
 # SETTINGS
@@ -37,13 +36,6 @@ rvy1_i = 50
 rvy2_i = 100
 
 rvx1, rvx2, rvy1, rvy2 = rvx1_i, rvx2_i, rvy1_i, rvy2_i
-# ============================
-# LOAD SOUNDS
-# ============================
-
-bounce_sound = pygame.mixer.Sound("bounce.wav")
-bounce_sound.set_volume(0.1)  # 0.0 to 1.0
-
 # ============================
 # BALL FUNCTIONS
 # ============================
@@ -129,8 +121,6 @@ def handle_collision(ball1, ball2):
         distance = 0.1
 
     if distance < ball1["radius"] + ball2["radius"]:
-        
-        bounce_sound.play()
 
         if (len(balls) < BALL_LIMIT2
             and collision_timer <= 0
